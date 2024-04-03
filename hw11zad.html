@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+    <link rel="stylesheet" href="hw11zad.css"> 
+
+  </head>
+<body>
+  <script>
+function zad1() 
+{
+    var item =event.target.value;
+    item = item.replace(/\d/g, "");
+    event.target.value=item;
+}
+function zad2() 
+{
+    const modal = document.getElementById("modal");
+    modal.style.display = "block";
+}
+function zad2_2() 
+{
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+}
+function zad3() 
+{
+    var ball = document.getElementById("ball");
+    var field = document.getElementById("field");
+    var X = event.clientX;
+    var Y = event.clientY;
+    ball.style.left = X + "px";
+    ball.style.top = Y + "px";
+}
+var redbool=false;
+function zad4() 
+{
+    var red = document.getElementById("red");
+    var yellow = document.getElementById("yellow");
+    var green = document.getElementById("green");
+    if(green.style.backgroundColor=="green" ||red.style.backgroundColor=="red"){
+        yellow.style.backgroundColor="yellow";
+        green.style.backgroundColor="gray";
+        red.style.backgroundColor="gray";
+    }
+    else if(yellow.style.backgroundColor=="yellow" && redbool){
+        yellow.style.backgroundColor="gray";
+        red.style.backgroundColor="red";
+        redbool=false;
+    }
+    else{
+        yellow.style.backgroundColor="gray";
+        green.style.backgroundColor="green";
+        redbool=true;
+    }
+}
+function zad5(book) 
+{ 
+    if( book.style.backgroundColor != "orange"){
+    var item = book.parentNode;
+    var children = item.children;
+    for(let i=0;i<children.length;i++){
+        var child = children[i];
+        child.style.backgroundColor = "";
+    }
+    book.style.backgroundColor = "orange";}
+    else{
+        book.style.backgroundColor = "";
+    }
+}    
+var tooltips = document.querySelectorAll('.tooltip');
+function zad6(button) {
+    var tooltipText = button.querySelector('.tooltiptext');
+    var buttonRect = button.getBoundingClientRect();
+    var Y = buttonRect.top;
+    if (Y < 40) {
+        tooltipText.classList.add('bottom');
+    } 
+    else {
+        tooltipText.classList.remove('bottom');
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    var toggler = document.querySelectorAll('.folder');
+    for (var i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener('click', function(event) {
+            event.stopPropagation(); // Зупиняємо подію відправлення до батьківського елементу
+            this.classList.toggle('active');
+            var nestedUl = this.querySelector('.nested');
+            if (nestedUl) {
+                nestedUl.classList.toggle('active');
+            }
+        });
+    }
+});
+</script>
+
+<div class="tooltip" onmouseenter="zad6(this)">
+    <button>Кнопка 2</button>
+    <span class="tooltiptext">Підказка 2</span>
+</div>
+<div id="football" style="width: 100%;height: 50vh;background-color: green;" onclick="zad3(event)">
+    <img id="ball" src="8353.png" style="transition: top 0.5s, left 0.5s;    position: absolute;
+   width: 100px;
+        height: 100px;
+   top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);"></img>
+</div>
+<div class="tooltip" onmouseenter="zad6(this)">
+    <button>Кнопка 1</button>
+    <span class="tooltiptext">Підказка 1</span>
+</div>
+<label for="username">Ім'я користувача:</label>
+<input type="text" id="username" oninput="zad1()">
+<button onclick="zad2()">Нажми!</button>
+<div id="modal" style="display: none;">
+    <p>Це модальне вікно</p>
+    <button onclick="zad2_2()">Закрити</button>
+</div>
+<div id="red" style="background-color: gray;width: 100px;height: 100px;margin: 20px; border-radius: 50%;"></div>
+<div id="yellow" style="background-color: yellow;width: 100px;height: 100px;margin: 20px; border-radius: 50%;"></div>
+<div id="green" style="background-color: gray;width: 100px;height: 100px;margin: 20px; border-radius: 50%;"></div>
+<button onclick="zad4()">NEXT!</button>
+<ol>
+    <li onclick="zad5(this)">Книга 1</li>
+    <li onclick="zad5(this)">Книга 2</li>
+    <li onclick="zad5(this)">Книга 3</li>
+    <li onclick="zad5(this)">Книга 4</li>
+</ol>
+<ul id="myList">
+    <li class="folder">Folder 1
+        <ul class="nested">
+            <li class="folder">Folder 1_1
+                <ul class="nested">
+                    <li>File 1</li>
+                    <li>File 2</li>
+                </ul>
+            </li>
+            <li>File 2</li>
+        </ul>
+    </li>
+    <li class="folder">Folder 2
+        <ul class="nested">
+            <li>File 3</li>
+            <li>File 4</li>
+        </ul>
+    </li>
+</ul>
+<div id="resizableBox" onmousedown="startResize(event)">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl nec odio commodo facilisis. Donec tristique elit nec magna gravida, nec volutpat tortor volutpat. Nullam sit amet tortor nec lorem eleifend ullamcorper. Vivamus sed dolor ut justo vehicula malesuada. Sed euismod turpis ut enim blandit varius. Sed vitae massa sit amet nulla elementum feugiat. Nullam sagittis eu magna at finibus. Morbi vel justo quis enim sollicitudin elementum eget nec nunc.</p>
+</div>
+</body>
+</html>
