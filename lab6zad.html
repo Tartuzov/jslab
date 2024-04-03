@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+<script>
+  var rectangle = {topLeft: { x: 0, y: 10 }, bottomRight: { x: 20, y: 0 }};
+  function zad1() 
+    {
+       var text ="Top Left: ("+rectangle.topLeft.x+";"+rectangle.topLeft.y+")\nBottom Right: ("+rectangle.bottomRight.x+";"+rectangle.bottomRight.y+")";
+      alert(text);
+    }
+    function zad2() 
+    {
+       var text =Math.abs(rectangle.bottomRight.x-rectangle.topLeft.x);
+      alert(text);
+    }
+    function zad3() 
+    {
+       var text = Math.abs(rectangle.topLeft.y-rectangle.bottomRight.y);
+      alert(text);
+    }
+    function zad4() 
+    {
+       var text =Math.abs((rectangle.topLeft.y-rectangle.bottomRight.y)*(rectangle.bottomRight.x-rectangle.topLeft.x));
+      alert(text);
+    }
+    function zad5() 
+    {
+       var text =Math.abs((rectangle.topLeft.y-rectangle.bottomRight.y))*2+Math.abs((rectangle.bottomRight.x-rectangle.topLeft.x))*2;
+      alert(text);
+    }
+    function zad6() 
+    {
+      var text =  parseInt(document.getElementById('input1').value);
+      if(text>0){
+        rectangle.bottomRight.x+=text;
+        zad1();
+      }
+    }
+    function zad7() 
+    {
+      var text =  parseInt(document.getElementById('input2').value);
+      if(text>0){
+        rectangle.topLeft.y+=text;
+        zad1();
+      }
+    }
+    function zad8() 
+    {
+      var text =  parseInt(document.getElementById('input3').value);
+      var text1 =  parseInt(document.getElementById('input4').value);
+      if(text>0 &&text1>0){
+        rectangle.bottomRight.x+=text;
+        rectangle.topLeft.y+=text1;
+        zad1();
+      }
+    }
+    function zad9() 
+    {
+      var text =  parseInt(document.getElementById('input5').value);
+        rectangle.bottomRight.x+=text;
+        rectangle.topLeft.x+=text;
+        zad1();
+    }
+    function zad10() 
+    {
+      var text =  parseInt(document.getElementById('input6').value);
+        rectangle.bottomRight.y+=text;
+        rectangle.topLeft.y+=text;
+        zad1();
+    }
+    function zad11() 
+    {
+      var text =  parseInt(document.getElementById('input7').value);
+      var text1 =  parseInt(document.getElementById('input8').value);
+        rectangle.bottomRight.x+=text;
+        rectangle.topLeft.x+=text;
+        rectangle.bottomRight.y+=text1;
+        rectangle.topLeft.y+=text1;
+        zad1();
+    }
+    function zad12() 
+    {
+      var text =  parseInt(document.getElementById('input9').value);
+      var text1 =  parseInt(document.getElementById('input10').value);
+       if(text>rectangle.topLeft.x && text<rectangle.bottomRight.x &&text1>rectangle.bottomRight.y &&text1<rectangle.topLeft.y)
+        alert("Точка в середині прямокутника");
+      else
+      alert("Точка ззовні прямокутника");
+    }
+</script>
+  </head>
+<body>
+<body>
+  1. Функція приймає об’єкт-прямокутник і виводить інформацію про нього (де яка точка розташована). 
+   <br>
+  <button onclick="zad1()">Нажми!</button>
+  <br>
+  2. Функція приймає об’єкт-прямокутник і повертає його
+  ширину.
+  <br>
+  <button onclick="zad2()">Нажми!</button>
+  <br>
+  3. Функція приймає об’єкт-прямокутник і повертає його
+  висоту. 
+   <br>
+  <button onclick="zad3()">Нажми!</button>
+  <br>
+  4. Функція приймає об’єкт-прямокутник і повертає його
+  площу.
+  <br>
+  <button onclick="zad4()">Нажми!</button>
+  <br>
+  5. Функція приймає об’єкт-прямокутник і повертає його
+  периметр.
+  <br>
+  <button onclick="zad5()">Нажми!</button>
+  <br>
+  6. Функція зміни ширини прямокутника. Вона приймає
+  об’єкт-прямокутник і на скільки одиниць змінити ширину.
+  <br>
+  <input id="input1"  placeholder="a">
+  <button onclick="zad6()">Нажми!</button>
+  <br>
+  7. Функція зміни висоти прямокутника. Вона приймає
+  об’єкт-прямокутник і на скільки одиниць змінити висоту.
+  <br>
+  <input id="input2"  placeholder="b">
+  <button onclick="zad7()">Нажми!</button>
+  <br>
+  8. Функція зміни ширини та висоти прямокутника. Вона
+  приймає об’єкт-прямокутник та два значення для зміни
+  ширини та висоти.
+  <br>
+  <input id="input3"  placeholder="a">
+  <input id="input4"  placeholder="b">
+  <button onclick="zad8()">Нажми!</button>
+  <br>
+  9. Функція зміщення прямокутника по осі X. Вона приймає
+  об’єкт-прямокутник і на скільки одиниць його зрушити.
+  <br>
+  <input id="input5"  placeholder="x">
+  <button onclick="zad9()">Нажми!</button>
+  <br>
+  10. Функція зміщення прямокутника по осі Y. Вона приймає
+  об’єкт-прямокутник і на скільки одиниць його зрушити.
+  <br>
+  <input id="input6"  placeholder="y">
+  <button onclick="zad10()">Нажми!</button>
+  <br>
+  11. Функція зміщення прямокутника по осі X та Y. Вона приймає об’єкт-прямокутник і два значення: зсув по осі X і
+  зсув по осі Y.
+  <br>
+  <input id="input7"  placeholder="x">
+  <input id="input8"  placeholder="y">
+  <button onclick="zad11()">Нажми!</button>
+  <br>
+  12. Функція для перевірки, чи знаходиться точка всередині
+прямокутника. Вона приймає об’єкт-прямокутник і координати точки
+<br>
+<input id="input9"  placeholder="x">
+<input id="input10"  placeholder="y">
+<button onclick="zad12()">Нажми!</button>
+<br>
+</body>
+</html>

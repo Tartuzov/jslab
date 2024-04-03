@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+<script>
+    function zad1() 
+    {
+        var text = document.getElementById('input11').value;
+      alert(text*text);
+  }
+  function zad2() 
+    {
+        var text = document.getElementById('input1').value;
+        var text1 = document.getElementById('input2').value;
+        var year = parseFloat(text)+parseFloat(text1);
+        alert(year/2 );
+  }
+  function zad3() 
+    {
+        var text = document.getElementById('input3').value;
+      alert(text*text+"cм^2");
+  }
+  function zad4() 
+    {
+        var text =  parseFloat(document.getElementById('input4').value);
+      alert(text*0.621371);
+  }
+  function zad5() 
+  {
+        var text = parseFloat(document.getElementById('input5').value);
+        var text1 = parseFloat(document.getElementById('input6').value);
+        alert(text+"+"+text1+"="+parseFloat(text+text1) );
+        alert(text+"-"+text1+"="+parseFloat(text-text1) );
+        alert(text+"/"+text1+"="+parseFloat(text/text1) );
+        alert(text+"*"+text1+"="+parseFloat(text*text1) );
+  }
+  function zad6() 
+  {
+        var text = parseFloat(document.getElementById('input7').value);
+        var text1 = parseFloat(document.getElementById('input8').value);
+        var year=parseFloat(text1/text)  * (-1);
+        alert(year);
+  }
+  function zad7() 
+  {
+        var text = parseFloat(document.getElementById('input9').value);
+        var text1 = parseFloat(document.getElementById('input10').value);
+        var h=23-text;
+        var m=60-text1;
+        alert(h+":"+m);
+  }
+  function zad8() 
+    {
+        var text = document.getElementById('input12').value;
+        var ch1 =text%10;
+        var ch2 =(text-ch1)/10 %10;
+        alert(ch2);
+  }
+  function zad9() 
+    {
+        var text = document.getElementById('input13').value;
+        var ch1 =text%10;
+        var ch2 =(text-ch1)/10 %10;
+        var ch3 =(text-ch1-ch2*10)/100 %10;
+        var ch4 =(text-ch1-ch2*10-ch3*100)/1000 %10;
+        var ch5 =(text-ch1-ch2*10-ch3*100-ch4*1000)/10000 %10;
+        var text1=ch1*10000+ch2+ch3*10+ch4*100+ch5*1000;
+        alert(text1);
+  }
+  function zad10() 
+    {
+        var text = parseFloat( document.getElementById('input14').value);
+        var ch1 =250+text*0.1;
+        alert(ch1);
+  }
+  </script>
+  </head>
+<body>
+<body>
+  1. Запросіть у користувача число, зведіть це число в 2 ступінь
+  та виведіть на екран
+<br>
+<input id="input11"  placeholder="число">
+<button onclick="zad1()">Нажми!</button>
+<br>
+2. Запросіть у користувача 2 числа та виведіть середнє арифметичне цих чисел.
+<br>
+<input id="input1"  placeholder="число">
+<br>
+<input id="input2"  placeholder="число">
+<button onclick="zad2()">Нажми!</button>
+<br>
+3. Запросіть у користувача довжину сторони квадрата та
+виведіть його площу.
+<br>
+<input id="input3"  placeholder="сторона">
+<button onclick="zad3()">Нажми!</button>
+<br>
+4. Реалізуйте конвертор із кілометрів у милі (користувач
+вводить кілометри, програма виводить милі).
+1 км = 0,621371 миль.
+Вкажіть це значення у коді як константу.
+<br>
+<input id="input4"  placeholder="км">
+<button onclick="zad4()">Нажми!</button>
+<br>
+5. Реалізуйте калькулятор. Користувач вводить два числа, а
+програма виводить результати дій + – * / цих чисел.
+<br>
+<input id="input5"  placeholder="число">
+<br>
+<input id="input6"  placeholder="число">
+<button onclick="zad5()">Нажми!</button>
+<br>
+6. Користувач вводить значення a і b для формули a * x + b = 0,
+а програма підраховує і виводить значення x.
+<br>
+<input id="input7"  placeholder="a">
+<br>
+<input id="input8"  placeholder="b">
+<button onclick="zad6()">Нажми!</button>
+<br>
+7. Запросіть у користувача поточний час (години та хвилини)
+і виведіть, скільки годин та хвилин залишилося до наступного дня.
+<br>
+<input id="input9"  placeholder="години">
+<br>
+<input id="input10"  placeholder="хвилини">
+<button onclick="zad7()">Нажми!</button>
+<br>
+8. Запросіть у користувача тризначне число та виведіть другу цифру цього числа. Для вирішення завдання використовуйте оператор % (залишок від ділення).
+<br>
+<input id="input12"  placeholder="***">
+<button onclick="zad8()">Нажми!</button>
+<br>
+9. Запросіть у користувача п’ятизначне число та перемістіть
+останню цифру на початок (із числа 12345 має вийти число 51234).
+<br>
+<input id="input13"  placeholder="*****">
+<button onclick="zad9()">Нажми!</button>
+<br>
+10. Зарплата працівника становить $250 + 10% від продажу.
+Запросіть загальну суму продажу за місяць і підрахуйте
+зарплату. 
+<br>
+<input id="input14"  placeholder="сума продажу">
+<button onclick="zad10()">Нажми!</button>
+<br>
+<br>
+</body>
+</html>

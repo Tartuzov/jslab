@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+  <script>
+  class Button{
+    constructor(width, height, text) {
+          this.width = width;
+          this.height = height;
+          this.text = text;
+    }
+    showBtn(){
+      document.write("<button style='width:" + this.width + "; height:" + this.height +";'>"+this.text+"</button>");}
+  }
+  let but = new Button('200px','30px','Taras #1');
+  but.showBtn();
+  class GeometricFigure{
+    constructor(name,sides,len) {
+      this._name = name;
+          this.sides=sides;
+          this.len=len;
+    }
+    get name(){
+      return this._name;
+    }
+    showInf() {
+      let text="";
+      for(let i=0;i<this.sides;i++){
+        if(i+1==this.sides)
+          text+=this.len[i]+".";
+        else 
+        text+=this.len[i]+", ";
+      }
+      alert(`Назва: ${this._name}\nКількість сторін: ${this.sides}\nДовжини сторін: ${text}`);
+    }
+    Perim(){
+      let text=0;
+      for(let i=0;i<this.sides;i++){
+        text+=this.len[i];
+      }
+      alert("Периметр: "+text)
+    }
+    Plosh(){
+      alert("Площа: недоступно для базового класу");
+    }
+  }
+  class Square extends GeometricFigure {
+    constructor(side) {
+        super('Квадрат', 4, [side, side, side, side]);
+    }
+    showInf() {
+        super.showInf();
+    }
+    Perim(){
+      alert("Периметр: "+this.len[0]*4);
+    }
+    Plosh(){
+      alert("Площа: "+this.len[0]*this.len[0])
+    }
+  }
+  class Rectangle  extends GeometricFigure {
+    constructor(width, height) {
+        super('Прямокутник', 4, [width, height, width, height]);
+    }
+    showInf() {
+        super.showInf();
+    }
+    Perim(){
+      super.Perim();
+    }
+    Plosh(){
+      alert("Площа: "+this.len[0]*this.len[1])
+    }
+  }
+  class Triangle   extends GeometricFigure {
+    constructor(side1, side2, side3) {
+        super('Трикутник', 3, [side1, side2, side3]);
+    }
+    showInf() {
+        super.showInf();
+    }
+    Perim(){
+      super.Perim();
+    }
+    Plosh(){
+      let text =0;
+      for(let i=0;i<this.sides;i++){
+        text+=this.len[i];
+      }
+      text/=2;
+      let S =Math.sqrt(text*(text-this.len[0])*(text-this.len[1])*(text-this.len[2]));
+      alert("Площа: "+S)
+    }
+  }
+  alert("ЦЕ ЗАВДАННЯ 2!")
+  const square = new Square(5);
+square.showInf();
+square.Perim();
+square.Plosh();
+
+const rectangle = new Rectangle(4, 6);
+rectangle.showInf();
+rectangle.Perim();
+rectangle.Plosh();
+
+const triangle = new Triangle(3, 4, 5);
+triangle.showInf();
+triangle.Perim();
+triangle.Plosh();
+class ExtentedArray extends Array{
+  constructor(...args) {
+        super(...args);
+    }
+    getString(separator){
+      document.write(this.join(separator));
+    }
+    getHtml(tagName){
+      let html="";
+      if(tagName=="li")
+      {
+        html+="<ul>"
+        this.forEach((element) => html+="<li>"+element+"</li>");
+        html+="</ul>"
+      }
+      else{
+        this.forEach((element) => html+="<"+tagName+">"+element+"</"+tagName+">");
+      }
+      document.write(html);
+    }
+}
+const arr = new ExtentedArray('Apple', 'Banana', 'Orange');
+arr.getString('@')
+arr.getHtml('li');
+arr.getHtml('p');
+  </script>
+</head>
+<body>
+<body>
+ 
+</body>
+</html>

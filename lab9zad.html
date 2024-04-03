@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+  <script>
+  class PrintMaсhine{
+    constructor(size, color, family) {
+          this.size = size;
+          this.color = color;
+          this.family = family;
+    }
+    print(){
+      document.write("<p style='color:" + this.color + "; font-size:" + this.size + "; font-family:" + this.family + ";'>Просто текст для завдання</p>");    }
+  }
+  const text = new PrintMaсhine("30px","blue","sans-serif");
+  text.print();
+  class News {
+    constructor(title, text, tags, publicationDate) {
+        this.title = title;
+        this.text = text;
+        this.tags = tags;
+        this.publicationDate =new Date( publicationDate);
+    }
+  print(){
+    var now = new Date();
+    var time = now.getTime()- this.publicationDate.getTime();
+    var text1 =this.tags.join(" ");
+    if(time< 86400000)
+      document.write("<p><h1>"+this.title+"</h1> сьогодні<br><br>"+this.text+"<br><br>"+text1+"</p>");   
+    else if(time> 86400000&&time<604800000){
+      var daysAgo = Math.floor(time / 86400000);
+      document.write("<p><h1>"+this.title+"</h1>"+daysAgo+ " днів тому<br><br>"+this.text+"<br><br>"+text1+"</p>");   
+    }
+    else{
+      document.write("<p><h1>"+this.title+"</h1>"+this.publicationDate.getDate()+"<br><br>"+this.text+"<br><br>"+text1+"</p>");   
+    }
+  }
+  }
+  var tags = ["#новини", "#технології", "#інтернет"];
+  var news1  = new News("Новий продукт від Google", "Google анонсував новий продукт, який змінить гру в галузі технологій.", tags, "2024-03-20");
+  news1.print();
+  class NewsFeed{
+    constructor() {
+      this.newsArray=[];
+    }
+    count(){
+      return this.newsArray.length;
+    }
+    allnews(){
+      for(let i=0;i<this.newsArray.length;i++){
+        this.newsArray[i].print();
+     }  
+  }
+  add(news)
+  {
+    this.newsArray.push(news);
+  }
+  delbyid(id)
+  {
+    this.newsArray.splice(id,1);
+  }
+  sortbyDate()
+  {
+    this.newsArray.sort((a, b) => b.publicationDate.getDate() - a.publicationDate.getDate());
+    this.allnews();
+  }
+  FindByTag(tag)
+  {
+    for(let i=0;i<this.newsArray.length;i++){
+      for(let j=0;j<this.newsArray[i].tags.length;j++){
+        if(tag==this.newsArray[i].tags[j])
+          this.newsArray[i].print();
+      }
+     }  
+  }
+  }
+  let tags1 = ["новини", "технології", "інтернет"];
+  let tags2 = ["спорт", "футбол", "ліга чемпіонів"];
+  let news2 = new News("Новий продукт від Google", "Google анонсував новий продукт, який змінить гру в галузі технологій.", tags1, "2024-03-26");
+  let news3 = new News("Результати матчу", "Вчорашній матч в Лізі чемпіонів завершився з рахунком 2:1.", tags2, "2024-03-25");
+  let newsFeed = new NewsFeed();
+  newsFeed.add(news3);
+  newsFeed.add(news2);
+  console.log("Кількість новин у стрічці: ", newsFeed.count());
+  console.log("Всі новини:");
+  newsFeed.allnews();
+  console.log("Сортування за датою:");
+  newsFeed.sortbyDate();
+  console.log("Видалення новини з індексом 0:");
+  newsFeed.delbyid(0);
+  console.log("Кількість новин після видалення: ", newsFeed.count());
+  console.log("Пошук новин за тегом 'спорт':");
+  newsFeed.FindByTag("спорт");
+  </script>
+</head>
+<body>
+<body>
+ 
+</body>
+</html>

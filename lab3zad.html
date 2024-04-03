@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+<script>
+    function zad1() 
+    {
+        var text = document.getElementById('input1').value;
+        var forwhule = 0;
+        var text1="";
+        while(forwhule<text){
+          text1+='#';
+          forwhule+=1;
+        }
+        alert(text1);
+  }
+  function zad2() 
+    {
+        var text = document.getElementById('input2').value;
+        var forwhule = 0;
+        var text1="";
+        while(forwhule<text){
+          text1+=" "+forwhule;
+          forwhule+=1;
+        }
+        alert(text1);
+  }
+  function zad3() 
+    {
+        var text = document.getElementById('input3').value;
+        var text1 = document.getElementById('input4').value;
+        var forwhule = 1;
+        var a= text;
+        while(forwhule<text1){
+          text*=a;
+          forwhule+=1;
+        }
+        alert(text);
+  }
+  function zad4() 
+    {
+        var text = document.getElementById('input5').value;
+        var text1 = document.getElementById('input6').value;
+        var forwhule = 2;
+        var a = text;
+        var text2="1";
+        if(text>text1){
+        while(forwhule<text1){
+          if(text1%forwhule==0 && text%forwhule==0)
+          {
+            text2+=" "+forwhule;
+          }
+          forwhule+=1;
+        }}
+        else{
+          while(forwhule<text){
+            if(text1%forwhule==0 && text%forwhule==0)
+          {
+            text2+=" "+forwhule;
+          }
+          forwhule+=1;
+        }
+        }
+        alert(text2);
+  }
+  function zad5() 
+    {
+        var text = document.getElementById('input7').value;
+        var forwhule = 2;
+        var text1=1;
+        while(forwhule<=text){
+          text1*=forwhule;
+          forwhule+=1;
+        }
+        alert(text1);
+  }
+  function zad6() 
+    {
+      var a =0;
+      do{
+      a = prompt("2+2*2=");
+      }while(a!=6)
+  }
+  function zad7() 
+    {
+      var a =0;
+      var b =1000;
+      do{
+      b/=2;
+      a+=1;
+      }while(b>=50)
+      alert(b+ " через "+a+" поділів")
+  }
+  function zad8() 
+    {
+        var text = document.getElementById('input8').value;
+        var text1="";   
+        for (let i = 1; i <= 100; i++) {
+          if(i%text==0){
+            text1+=i+" "
+          }
+        }
+        alert(text1);
+  }
+  function zad9() 
+    {
+        var text = document.getElementById('input9').value;
+        var text2 = document.getElementById('input10').value;
+        var text1="";   
+        for (let i = text; i <= text2; i++) {
+          if((i-text)%4==0){
+            text1+=i+" "
+          }
+        }
+        alert(text1);
+  }
+  function zad10() 
+    {
+        var text = document.getElementById('input11').value;
+        var text1=0;   
+        for (let i = 1; i <= text; i++) {
+          if(text%i==0){
+            text1+=1;
+          }
+        }
+        if(text1>2)
+          alert("складне");
+        else{
+          alert("просте");
+        }
+  }
+  </script>
+  </head>
+<body>
+<body>
+  ■ Завдання, в яких необхідно використати WHILE.  <br>
+  1. Виведіть # стільки разів, скільки вказав користувач.
+  <br>
+<input id="input1"  placeholder="*****">
+<button onclick="zad1()">Нажми!</button>
+<br>
+  2. Користувач ввів число, а на екран було виведено всі числа:
+  від введеного до 0.
+  <br>
+  <input id="input2"  placeholder="*****">
+  <button onclick="zad2()">Нажми!</button>
+  <br>
+  3. Запросіть число та ступінь. Зведіть число у вказаний ступінь та виведіть результат.
+  <br>
+  <input id="input3"  placeholder="a">
+  <br>
+  <input id="input4"  placeholder="^">
+  <button onclick="zad3()">Нажми!</button>
+  <br>
+  4. Запросіть 2 числа і знайдіть всі спільні дільники.
+  <br>
+  <input id="input5"  placeholder="a">
+  <br>
+  <input id="input6"  placeholder="b">
+  <button onclick="zad4()">Нажми!</button>
+  <br>
+  5. Підрахуйте факторіал числа, введеного користувачем.
+  <br>
+<input id="input7"  placeholder="a">
+<button onclick="zad5()">Нажми!</button>
+<br>
+  ■ Завдання, у яких необхідно використати DO WHILE.
+  <br>
+  1. Запропонуйте користувачеві розв’язати приклад 2 + 2 * 2,
+  доки він не надасть правильну відповідь.
+  <br>
+  <button onclick="zad6()">Нажми!</button>
+  <br>
+  2. Діліть число 1000 на 2, доки не отримаєте число менше,
+  ніж 50. Виведіть отримане число і скільки зробили поділів.
+  <br>
+  <button onclick="zad7()">Нажми!</button>
+  <br>
+  ■ Завдання, в яких потрібно використати FOR.
+  <br>
+  1. Виведіть усі числа від 1 до 100, які кратні числу зазначеному користувачем.
+  <br>
+<input id="input8"  placeholder="**">
+<button onclick="zad8()">Нажми!</button>
+<br>
+  2. Виведіть кожен 4-ий елемент із зазначеного користувачем
+діапазону. Користувач вказує мінімальне та максимальне
+значення діапазону.
+<br>
+<input id="input9"  placeholder="min">
+<input id="input10"  placeholder="max">
+<button onclick="zad9()">Нажми!</button>
+<br>
+3. Запросіть число і перевірте, чи просте воно. Просте число
+ділиться без залишку тільки на себе і на 1.
+<br>
+<input id="input11"  placeholder="a">
+<button onclick="zad10()">Нажми!</button>
+<br>
+<br>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+    <link rel="stylesheet" href="lab11zad.css"> 
+  </head>
+<body style=" width: 100%;height: 100vh;" >
+  <script>
+    function zad1() {
+        var randomNumber = Math.floor(Math.random() * 101); 
+        document.getElementById("textrand").innerText = randomNumber; 
+    }
+    function zad2() {
+      var x = event.clientX;
+      var y = event.clientY;
+      document.getElementById("XY").innerText ="X: "+ x+"  Y: "+ y; 
+    }
+    function zad2_2() {
+      var button = event.button;
+      var mouseButton = "Кнопка миші: ";
+      if (button === 0) {
+        mouseButton += "Ліва кнопка";
+      } else if (button === 2) {
+        mouseButton += "Права кнопка";
+      } else {
+        mouseButton += "Не відомо";
+      } 
+      document.getElementById("XY").innerText =mouseButton; 
+    }
+    var a=true;
+    function zad3() {
+      if(a){
+        document.getElementById("Text").style.color =window.getComputedStyle(document.getElementById("main")).getPropertyValue("background-color"); 
+        a=false;
+      }else{
+        document.getElementById("Text").style.color ="black"; 
+        a=true;
+      }
+    }
+    function zad4(tabName){
+      let tabcontent = document.getElementsByClassName("tab");
+      for (let i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      let tablinks = document.getElementsByClassName("tab-button");
+      for (let i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = "tab-button";
+      }
+      document.getElementById(tabName).style.display = "block";
+      event.currentTarget.className += " active";
+    }
+    function zad5(button) {
+        var item = button.parentNode;
+        item.parentNode.removeChild(item);
+    }
+    function zad6() 
+    {
+      if(document.getElementById('pbar').value<100)
+      document.getElementById('pbar').value +=5;
+    else if(document.getElementById('pbar').value==100)
+      document.getElementById('pbar').value =100;
+    }
+    function zad7(cell) {
+        cell.style.backgroundColor = "#81aacc"; // Змінюємо колір фону клітинки
+    }
+    function zad7_2(cell) {
+        cell.style.backgroundColor = ""; // Відновлюємо початковий колір фону клітинки
+    }
+    function zad9() 
+    {
+      let a=    document.getElementById("button9").textContent.split(" ");
+      document.getElementById("button9").textContent="Like "+(parseInt(a[1])+1);
+    }
+    function zad10(button) {
+      var dropdownContent = button.nextElementSibling;
+      if(dropdownContent.style.display != "block")
+      dropdownContent.style.display = "block";
+      else{
+        dropdownContent.style.display = "none";
+      }
+    }
+   </script>
+  <div style=" width: 100%;height: 100%; position: relative;" id="main" onmousemove="zad2()" onmousedown="zad2_2()" oncontextmenu="event.preventDefault()">
+  <h1>Random number:</h1>
+  <div style="font-size: 24px;" id="textrand">00</div>
+  <br>
+  <button onclick="zad1()">Нажми!</button>
+  <br>
+  <br>
+  <div style="font-size: 24px;" id="XY">X: </div>
+  <br>
+  <button onclick="zad3()">Нажми!</button>
+  <br>
+  <div style="font-size: 24px; user-select: none;" id="Text" >
+    Це також 8 завдання<br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu interdum turpis. Suspendisse ultrices pulvinar felis, eu convallis felis rhoncus sit amet. Sed vel purus turpis. Nunc tincidunt convallis est ut accumsan. Nam tristique eros felis, quis viverra nisl pulvinar et. Vivamus pharetra, enim nec pharetra rhoncus, eros lectus sollicitudin leo, nec hendrerit nulla lorem nec tellus. Phasellus efficitur nibh tempus commodo tincidunt. Sed sollicitudin fringilla nisl, feugiat suscipit eros cursus ut. Praesent gravida felis in finibus tincidunt. In ac tristique est, a lobortis quam. Integer ac tincidunt sapien. Donec a nunc vel diam suscipit ultricies. Suspendisse ut tellus ut tortor tempus auctor in eu leo. Ut convallis a lectus sed blandit. Aliquam dignissim est lacus, sit amet cursus nibh lacinia eu.</div>
+    <button id="button9" onclick="zad9()">Like 0</button>
+    <br>
+    <br>
+    <div class="dropdown">
+      <button class="dropdown-item" onclick="zad10(this)" >Меню 1</button>
+      <div class="dropdown-content" >
+          <a class="dropdown-item" href="#">Підменю 1-1</a>
+          <a class="dropdown-item" href="#">Підменю 1-2</a>
+          <a class="dropdown-item" href="#">Підменю 1-3</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropdown-item" onclick="zad10(this)" >Меню 2</button>
+      <div class="dropdown-content">
+          <a class="dropdown-item" href="#">Підменю 2-1</a>
+          <a class="dropdown-item" href="#">Підменю 2-2</a>
+          <a class="dropdown-item" href="#">Підменю 2-3</a>
+      </div>
+    </div>  
+    <br>
+    <br><div class="tabs" >
+    <div >
+    <div class="tab-button active" onclick="zad4('tab1')">Вкладка 1</div>
+    <div class="tab-button" onclick="zad4('tab2')">Вкладка 2</div>
+    <div class="tab-button" onclick="zad4('tab3')">Вкладка 3</div>
+   </div>
+   <div class="contentoftabs">
+    <div id="tab1" class="tab active">
+        <h2>Вміст вкладки 1</h2>
+        <p>Це вміст першої вкладки.</p>
+    </div>
+
+    <div id="tab2" class="tab" >
+        <h2>Вміст вкладки 2</h2>
+        <p>Це вміст другої вкладки.</p>
+    </div>
+
+    <div id="tab3" class="tab">
+        <h2>Вміст вкладки 3</h2>
+        <p>Це вміст третьої вкладки.</p>
+    </div>
+  </div>
+  </div> 
+  <div id="news-list">
+    <div>
+        <h2>Заголовок новини 1</h2>
+        <p>Текст новини 1</p>
+        <button onclick="zad5(this)">Видалити</button>
+    </div>
+    <div class="news-item">
+        <h2>Заголовок новини 2</h2>
+        <p>Текст новини 2</p>
+        <button  onclick="zad5(this)">Видалити</button>
+    </div>
+    <div class="news-item">
+        <h2>Заголовок новини 3</h2>
+        <p>Текст новини 3</p>
+        <button  onclick="zad5(this)">Видалити</button>
+    </div>
+  </div>
+<progress max="100" value="0" id="pbar"></progress>
+<button onclick="zad6()">Add 5%</button> <br> <br> <br>
+<table id="myTable">
+  <tr>
+      <td onmouseover="zad7(this)" onmouseout="zad7_2(this)">Клітина 1</td>
+      <td onmouseover="zad7(this)" onmouseout="zad7_2(this)">Клітина 2</td>
+      <td onmouseover="zad7(this)" onmouseout="zad7_2(this)">Клітина 3</td>
+  </tr>
+  <tr>
+      <td onmouseover="zad7(this)" onmouseout="zad7_2(this)">Клітина 4</td>
+      <td onmouseover="zad7(this)" onmouseout="zad7_2(this)">Клітина 5</td>
+      <td onmouseover="zad7(this)" onmouseout="zad7_2(this)">Клітина 6</td>
+  </tr>
+</table>
+
+</div>  
+</body>
+</html>

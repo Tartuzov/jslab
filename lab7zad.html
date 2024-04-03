@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+<script>
+    var mas =[]
+    for(i=0;i<10;i++){
+      mas.push(Math.floor(Math.random() * 100) + 1);
+    }
+    function zad1(){
+      var text="";
+      for(i=0;i<10;i++){
+      text+=mas[i]+" ";
+      }
+      alert(text);
+    }
+    function zad2(){
+      var text="";
+      for(i=0;i<mas.length;i++){
+        if(mas[i]%2==0)
+      text+=mas[i]+" ";
+      }
+      alert(text);
+    }
+    function zad3(){
+      var text=0;
+      for(i=0;i<mas.length;i++){
+        text+=mas[i];
+      }
+      alert(text);
+    }
+    function zad4(){
+      var text=0;
+      for(i=0;i<mas.length;i++){
+        if(mas[i]>text)
+          text=mas[i];
+      }
+      alert(text);
+    }
+    function zad5(){
+      var text =  parseInt(document.getElementById('input1').value);
+      mas.splice(text,0,(Math.floor(Math.random() * 100) + 1));
+      zad1();
+    }
+    function zad6(){
+      var text =  parseInt(document.getElementById('input2').value);
+      mas.splice(text, 1);
+      zad1();
+    }
+    var mas1 =[]
+    for(i=0;i<5;i++){
+      mas1.push(Math.floor(Math.random() * 100) + 1);
+    }
+    function zad7(){
+      var mas2 =mas.concat(mas1);
+      var set = new Set(mas2);
+      var mas3 = Array.from(set);
+      var text="";
+      for(i=0;i<mas3.length;i++){
+        text+=mas3[i]+" ";
+      }
+      alert(text);
+    }
+    function zad8(){
+      var mas2 =mas.filter(a=>mas1.includes(a));
+      var text="";
+      for(i=0;i<mas2.length;i++){
+        text+=mas2[i]+" ";
+      }
+      alert(text);
+    }
+    function zad9(){
+      var mas2 =mas.filter(a=>!mas1.includes(a));
+      var text="";
+      for(i=0;i<mas2.length;i++){
+        text+=mas2[i]+" ";
+      }
+      alert(text);
+    }
+    var fruits = ['яблуко', 'банан', 'апельсин', 'груша', 'киві', 'ананас', 'манго'];
+    function zad10(){
+      var text="<ul> "
+      for(i=0;i<fruits.length;i++){
+        text+="<li>"+fruits[i]+"</li>";
+      }
+      text+="</ul>";
+      document.write(text);
+    }
+    function zad11(){
+      var text= document.getElementById('input3').value;
+      var id=-1;
+      var text1 = text.toLowerCase();
+      for(i=0;i<fruits.length;i++){
+        if(text1==fruits[i]){
+          id=i;
+        break;
+        }
+      }
+      alert(id);
+    }
+    </script>
+  </head>
+<body>
+<body>
+  <br>  
+  <button onclick="zad1()">Нажми!</button>
+  <br>    
+  <br>  
+  <button onclick="zad2()">Нажми!</button>
+  <br>  
+  <br>  
+  <button onclick="zad3()">Нажми!</button>
+  <br> 
+   <br>  
+  <button onclick="zad4()">Нажми!</button>
+  <br>
+  <br>  
+<input id="input1"  placeholder="id">
+  <button onclick="zad5()">Нажми!</button>
+  <br>
+  <br>  
+  <input id="input2"  placeholder="id">
+    <button onclick="zad6()">Нажми!</button>
+    <br>
+    <br>  
+    <button onclick="zad7()">Нажми!</button>
+    <br>
+    <br>  
+    <button onclick="zad8()">Нажми!</button>
+    <br>
+    <br>  
+    <button onclick="zad9()">Нажми!</button>
+    <br>
+    <br>  
+    <button onclick="zad10()">Нажми!</button>
+    <br>
+    <br>  
+  <input id="input3"  placeholder="name of fruit">
+  <button onclick="zad11()">Нажми!</button>
+    <br>
+</body>
+</html>
