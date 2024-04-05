@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+    <link rel="stylesheet" href="lab11zad.css"> 
+  </head>
+<body style=" width: 100%;height: 100vh;" >
+  <script>
+   function zad1(){
+    var a =document.getElementById('inp');
+    a.value=parseInt(a.value) +1;
+   }
+   function zad1_1(){
+    var a =document.getElementById('inp');
+    a.value-= 1;
+   }
+   function zad2(){
+    var a =document.getElementById('container');
+    const colors = [
+    "#FF0000", // Червоний
+    "#00FF00", // Зелений
+    "#0000FF", // Синій
+    "#FFFF00", // Жовтий
+    "#FF00FF", // Фуксія
+    "#00FFFF", // Блакитний
+    "#800000", // Темно-червоний
+    "#008000", // Темно-зелений
+    "#000080", // Темно-синій
+    "#808000", // Оливковий
+    "#800080", // Пурпурний
+    "#008080", // Темно-блакитний
+    "#808080", // Сірий
+    "#C0C0C0", // Сріблястий
+    "#FFFFFF"  // Білий
+  ];
+  let b= Math.floor(Math.random() * 15);
+  let block = document.createElement('div');
+  block.style.backgroundColor =colors[b];
+  block.style.height="10px";
+  block.style.display="inline-block";
+  block.style.margin="1px";
+
+  block.style.width="15px";
+  block.addEventListener('click', function() {
+            a.removeChild(block);
+        });
+  a.appendChild(block);
+  }
+  function zad3(button){
+    var a =document.getElementById('text');
+    a.style.color=button.style.backgroundColor;
+   }
+   function zad4(){
+    var name =document.getElementById('userName');
+    var text =document.getElementById('commentText');
+    var comments = document.getElementById('comm');
+    var comm = document.createElement('div');
+    var date = new Date().toLocaleDateString();
+    comm.innerHTML= '<strong>' + name.value + '</strong> - ' + date + "<br>" + commentText.value+"<hr>";
+    comments.appendChild(comm);
+   }
+   function zad5(){
+    var countries = [
+    "Афганістан",
+    "Албанія",
+    "Алжир",
+    "Андорра",
+    "Ангола",
+    "Антигуа і Барбуда",
+    "Аргентина",
+    "Вірменія",
+    "Австралія",
+    "Австрія",
+    "Азербайджан",
+    "Багами",
+    "Бахрейн",
+    "Бангладеш",
+    "Барбадос",
+    "Білорусь",
+    "Бельгія",
+    "Беліз",
+    "Бенін",
+    "Бутан",
+    "Болівія",
+    "Боснія і Герцеговина",
+    "Ботсвана",
+    "Бразилія",
+    "Бруней",
+    "Болгарія",
+    "Буркіна-Фасо",
+    "Бурунді",
+    "Кабо-Верде",
+    "Камбоджа",
+    "Камерун",
+    "Канада",
+    "Центральноафриканська Республіка",
+    "Чад",
+    "Чилі",
+    "Китай",
+    "Колумбія",
+    "Коморські острови",
+    "Конго",
+    "Коста-Рика",
+    "Хорватія",
+    "Куба",
+    "Кіпр",
+    "Чехія",
+    "Данія",
+    "Джибуті",
+    "Домініка",
+    "Домініканська Республіка",
+    "Східний Тимор",
+    "Еквадор",
+    "Єгипет",
+    "Сальвадор",
+    "Екваторіальна Гвінея",
+    "Еритрея",
+    "Естонія",
+    "Ефіопія",
+    "Фіджі",
+    "Фінляндія",
+    "Франція",
+    "Габон",
+    "Гамбія",
+    "Грузія",
+    "Німеччина",
+    "Гана",
+    "Греція",
+    "Гренада",
+    "Гватемала",
+    "Гвінея",
+    "Гвінея-Бісау",
+    "Гаяна",
+    "Гаїті",
+    "Гондурас",
+    "Угорщина",
+    "Ісландія",
+    "Індія",
+    "Індонезія",
+    "Іран",
+    "Ірак",
+    "Ірландія",
+    "Ізраїль",
+    "Італія",
+    "Ямайка",
+    "Японія",
+    "Йорданія",
+    "Казахстан",
+    "Кенія",
+    "Кірібаті",
+    "Північна Корея",
+    "Південна Корея",
+    "Кувейт",
+    "Киргизстан",
+    "Лаос",
+    "Латвія",
+    "Ліван",
+    "Лесото",
+    "Ліберія",
+    "Лівія",
+    "Ліхтенштейн",
+    "Литва",
+    "Люксембург",
+    "Мадагаскар",
+    "Малаві",
+    "Малайзія",
+    "Мальдіви",
+    "Малі",
+    "Мальта",
+    "Маршаллові Острови",
+    "Мавританія",
+    "Маврикій",
+    "Мексика",
+    "Мікронезія",
+    "Молдова",
+    "Монако",
+    "Монголія",
+    "Чорногорія",
+    "Марокко",
+    "Мозамбік",
+    "М'янма",
+    "Намібія",
+    "Науру",
+    "Непал",
+    "Нідерланди",
+    "Нова Зеландія",
+    "Нікарагуа",
+    "Нігер",
+    "Нігерія",
+    "Норвегія",
+    "Оман",
+    "Пакистан",
+    "Палау",
+    "Панама",
+    "Папуа-Нова Гвінея",
+    "Парагвай",
+    "Перу",
+    "Філіппіни",
+    "Польща",
+    "Португалія",
+    "Катар",
+    "Румунія",
+    "росія",
+    "Руанда",
+    "Сент-Кітс і Невіс",
+    "Сент-Люсія",
+    "Сент-Вінсент і Гренадини",
+    "Самоа",
+    "Сан-Марино",
+    "Сан-Томе і Принсіпі",
+    "Саудівська Аравія",
+    "Сенегал",
+    "Сербія",
+    "Сейшельські Острови",
+    "Сьєрра-Леоне",
+    "Сінгапур",
+    "Словаччина",
+    "Словенія",
+    "Соломонові Острови",
+    "Сомалі",
+    "ПАР",
+    "Південний Судан",
+    "Іспанія",
+    "Шрі-Ланка",
+    "Судан",
+    "Суринам",
+    "Свазіленд",
+    "Швеція",
+    "Швейцарія",
+    "Сирія",
+    "Таджикистан",
+    "Танзанія",
+    "Таїланд",
+    "Того",
+    "Тонга",
+    "Тринідад і Тобаго",
+    "Туніс",
+    "Туреччина",
+    "Туркменистан",
+    "Тувалу",
+    "Уганда",
+    "Україна",
+    "Об'єднані Арабські Емірати",
+    "Великобританія",
+    "США",
+    "Уругвай",
+    "Узбекистан",
+    "Вануату",
+    "Ватикан",
+    "Венесуела",
+    "В'єтнам",
+    "Ємен",
+    "Замбія",
+    "Зімбабве"
+];
+    var input = document.getElementById('countryInput');
+    var suggestions = document.getElementById('suggestions');
+    var inputText = input.value.toLowerCase();  
+    suggestions.innerHTML = '';
+    if (inputText.length === 0) {
+        suggestions.style.display = 'none';
+        return;
+    }
+    else{
+      suggestions.style.display = 'block';
+    }
+    var matches = countries.filter(function(country) {
+        return country.toLowerCase().startsWith(inputText);
+    });
+    for(let i=0;i<matches.length &&i<10;i++){
+      suggestions.innerHTML+="<div onclick=zad5_1(this)>"+matches[i]+"</div>";
+    }
+}
+function zad5_1(div){
+    var suggestions = document.getElementById('suggestions');
+  var input = document.getElementById('countryInput');
+  input.value=div.textContent;
+  suggestions.innerHTML = '';
+  suggestions.style.display = 'none';
+}
+function zad6(str){
+  document.getElementById('display').value += str;
+}
+function zad6_1() {
+    var expression = document.getElementById('display').value;
+    try {
+        var result = eval(expression);
+        document.getElementById('display').value = result;
+    } catch (error) {
+        document.getElementById('display').value = 'Error';
+    }
+}
+window.onscroll = function() {scroll()};
+
+function scroll() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    document.getElementById('↑').style.display = "block";
+  } else {
+    document.getElementById('↑').style.display = "none";
+  }
+}
+function zad7(){
+  document.documentElement.scrollTop = 0;
+}
+  </script>
+  <input style="font-size: 24px; user-select: none;" id="inp" value="0" readonly>
+  <br><br>
+  <button onclick="zad1_1()">Менше</button>
+  <button onclick="zad1()">Більше</button>
+  <div id="container"></div>
+  <button onclick="zad2()">Додати блок</button>
+  <br>
+  <br>
+  <button style="background-color: #FF0000; height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #00FF00;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #0000FF;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #FFFF00;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #FF00FF;height: 20px;width: 20px" onclick="zad3(this)"></button>   
+  <button style="background-color: #00FFFF;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #00FF00;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #800000;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #008000;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #000080;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #808000;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #800080;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #008080;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #0000FF;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #808080;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #C0C0C0;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <button style="background-color: #FFFFFF;height: 20px;width: 20px" onclick="zad3(this)"></button>
+  <div id="text">
+    Це приклад тексту.
+  </div>
+  <br>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis mi at nibh venenatis, sit amet imperdiet lectus sodales. Morbi id eros sagittis, tincidunt nulla ut, rutrum felis. Fusce vel pulvinar tortor. In convallis dui quis mauris finibus, vel porttitor ex imperdiet. Quisque sed gravida lectus. Maecenas eget metus ex. Phasellus nibh metus, posuere ut egestas a, iaculis et tellus. Curabitur lorem nibh, pretium nec finibus ac, faucibus ac ante. Duis imperdiet volutpat odio et porta. In mattis quam vel tincidunt commodo. Integer ac nisl vehicula, ullamcorper sem ut, pharetra felis.
+  <hr>
+  <div id="comm"></div>
+
+  Ім'я:<br>
+  <input id="userName" required><br>
+  Коментар:<br>
+  <textarea id="commentText" rows="4" cols="50" required></textarea><br>
+  <button onclick="zad4()">Додати коментар</button><br><br> 
+  <input id="countryInput" oninput="zad5()">
+  <div id="suggestions"></div>
+  <br>
+  <div class="calculator">
+    <input style="width: 105px;" id="display" readonly> <br>
+    <button style="width: 25px;height: 25px;" onclick="zad6('7')">7</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('8')">8</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('9')">9</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('/')">/</button>
+    <br>
+    <button style="width: 25px;height: 25px;" onclick="zad6('4')">4</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('5')">5</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('6')">6</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('*')">*</button>
+    <br>
+    <button style="width: 25px;height: 25px;" onclick="zad6('1')">1</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('2')">2</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('3')">3</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('-')">-</button>
+    <br>
+    <button style="width: 25px;height: 25px;" onclick="zad6('0')">0</button>
+    <button style="width: 54px;height: 25px;" onclick="zad6_1()">=</button>
+    <button style="width: 25px;height: 25px;" onclick="zad6('+')">+</button>
+    <button id="↑" style="position: fixed;bottom: 20px;right: 20px;display: none;" onclick="zad7()">Вгору</button>
+</div>
+</body>
+</html>
