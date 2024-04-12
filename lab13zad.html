@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Времена года</title>
+    <link rel="stylesheet" href="lab11zad.css"> 
+  </head>
+<body style=" width: 100%;height: 100vh;" >
+  <script>
+   function zad1() {
+      event.preventDefault();
+      var username = document.getElementById("username").value;
+      var rememberMe = document.getElementById("rememberMe").checked;
+      var message = "";
+      if (rememberMe) {
+          message = "Привіт, " + username + "! Я тебе запам'ятав.";
+      } else {
+          message = "Привіт, " + username + "! Я тебе не запам'ятав.";
+      }
+     alert(message);
+    }
+    function zad2() {
+      event.preventDefault();
+      var email = document.getElementById("email").value;
+      var message = "На " + email + " надіслано лист із підтвердженням.";
+      alert(message);
+      return false; 
+    }
+    function zad3() {
+      event.preventDefault();
+      var firstname = document.getElementById("firstname").value;
+      var lastname = document.getElementById("lastname").value;
+      var birthday = document.getElementById("birthday").value;
+      var gender = document.getElementById("gender").value;
+      var country = document.getElementById("country").value;
+      var city = document.getElementById("city").value;
+      var skills = "";
+      var cPlusPlusCheckbox = document.getElementById("cPlusPlus");
+      if (cPlusPlusCheckbox.checked) {
+          skills += "C++, ";
+      }
+      var cSharpCheckbox = document.getElementById("cSharp");
+      if (cSharpCheckbox.checked) {
+          skills += "C#, ";
+      }
+      var cssCheckbox = document.getElementById("CSS");
+      if (cssCheckbox.checked) {
+          skills += "CSS, ";
+      }
+      var htmlCheckbox = document.getElementById("HTML");
+      if (htmlCheckbox.checked) {
+          skills += "HTML, ";
+      }
+      var jsCheckbox = document.getElementById("JS");
+      if (jsCheckbox.checked) {
+          skills += "JS, ";
+      }
+      var javaCheckbox = document.getElementById("Java");
+      if (javaCheckbox.checked) {
+          skills += "Java, ";
+      }
+      if (skills.length > 0) {
+          skills = skills.substring(0, skills.length - 2);
+      }
+      document.write("Firstname: " + firstname + "<br>" +
+                   "Lastname: " + lastname + "<br>" +
+                   "Birthday: " + birthday + "<br>" +
+                   "Gender: " + gender + "<br>" +
+                   "Country: " + country + "<br>" +
+                   "City: " + city + "<br>" +
+                   "Skills: " + skills);
+    }
+    function zad4() {
+      event.preventDefault();
+      var newColor = document.getElementById('newColor').value;
+      var colorBox = document.createElement('div');
+      colorBox.style.width = "50px";
+      colorBox.style.height = "25px";
+      colorBox.style.display = "inline-block";
+      colorBox.style.backgroundColor = newColor;
+      document.getElementById('colorPalette').appendChild(colorBox);
+    }
+    function zad5() {
+      event.preventDefault();
+      var question = document.getElementById('question').value;
+      var correctAnswer = document.getElementById('correctAnswer').value;
+      var wrongAnswer = document.getElementById('wrongAnswer').value;
+      var questionBox = document.createElement('div');
+      questionBox.style.display = "block";
+      questionBox.style.backgroundColor = newColor;
+      questionBox.innerHTML=question+"<br>Correct answer: "+correctAnswer+"<br>Wrong answer: "+wrongAnswer;
+      document.getElementById('questions').appendChild(questionBox);
+    }
+ </script>
+   <form  onsubmit="return zad1()">
+     Username:
+     <input type="text" id="username" required><br><br>
+     Password:
+     <input type="password" id="password" required><br><br>
+     <input type="checkbox" id="rememberMe" name="rememberMe">
+     Запам'ятати мене
+     <br><br>
+     <button type="submit">Login</button>
+    </form>
+  <hr>
+
+    <form onsubmit="return zad2()">
+      Email:<br>
+      <input type="email" id="email"  required><br><br>
+      Username:<br>
+      <input type="text" id="username"required><br><br>
+      Password:<br>
+      <input type="password" id="password"  required><br><br>
+      Confirm Password:<br>
+      <input type="password" id="confirmPassword" required><br><br>
+      <button type="submit">Register</button>
+  </form>
+  <hr>
+  <form onsubmit="return zad3()">
+    Firstname:<br>
+    <input type="text" id="firstname" required><br><br>
+    Lastname:<br>
+    <input type="text" id="lastname" required><br><br>
+    Birthday:<br>
+    <input type="date" id="birthday" required><br><br>
+    Gender:<br>
+    <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select><br><br>
+    Country:<br>
+    <input type="text" id="country" required><br><br>
+    City:<br>
+    <input type="text" id="city"required><br><br>
+    Skills:<br>
+    <input type="checkbox" id="cPlusPlus" value="C++">
+    C++<br>
+    <input type="checkbox" id="cSharp" value="C#">
+    C#<br>
+    <input type="checkbox" id="CSS" value="CSS">
+    CSS<br>
+    <input type="checkbox" id="HTML" value="HTML">
+    HTML<br>
+    <input type="checkbox" id="JS" value="JS">
+    JS<br>
+    <input type="checkbox" id="Java" value="Java">
+    Java<br>
+    <button type="submit">Submit</button>
+</form>
+<hr>
+<div id="colorPalette">
+  <div style="background-color: red;width: 50px;height: 25px;display: inline-block;"></div>
+  <div style="background-color: blue;width: 50px;height: 25px;display: inline-block;"></div>
+  <div style="background-color: green;width: 50px;height: 25px;display: inline-block;"></div>
+</div>
+<form onsubmit="return zad4()">
+  <label for="newColor">New Color:</label>
+  <input type="color" id="newColor" name="newColor" required>
+  <button type="submit">Add Color</button>
+</form>
+<hr>
+<div id="questions"></div>
+<hr>
+<form onsubmit="return zad5()">
+ Question:
+  <input id="question" equired>
+  <br>
+ Correct Answer:
+  <input id="correctAnswer" required>
+  <br>
+ Wrong Answer:
+  <input id="wrongAnswer" required>
+  <br>
+  <button type="submit">Add Question</button>
+</form>
+</body>
+</html>
