@@ -1,0 +1,162 @@
+<html>
+<head>
+        <title>Времена года</title>
+</head>
+<body>
+    <p class="greeting"></p>
+    <h3>User info</h3>
+    <div class="container">
+        <div class="group">
+            First Name:
+            <input type="text" id="firstname" required>
+        </div>
+        <div class="group">
+            Last Name:
+            <input type="text" id="lastname" required>
+        </div>
+        <div class="group">
+            Year of birth:
+            <input type="text" id="year" required>
+        </div>
+        <div class="group">
+            Gender:
+            <select id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="group">
+             Phone number:
+            <input type="text" id="phone" required>
+        </div>
+        <div class="group">
+            Skype:
+            <input type="text" id="skype" required>
+        </div>
+        <button style="grid-column: span 2;" type="submit" onclick="validation()">Save</button>
+        <p id="saveMessage" style="grid-column: span 2; text-align: center; color: green; display: none;">Saved successfully!</p>
+    </div>
+    <script>
+        window.onload = function() {
+            const userData = getCookieData();
+            if (userData) {
+                fillForm(userData);
+                Hello(userData.email);
+            } else {
+                clearForm();
+            }
+        }
+
+        function getCookieData() {
+            const cookieEmail = getCookie('email');
+            if (cookieEmail) {
+                const userData = {
+                    email: cookieEmail,
+                    firstname: getCookie(`${cookieEmail}_firstname`),
+                    lastname: getCookie(`${cookieEmail}_lastname`),
+                    year: getCookie(`${cookieEmail}_year`),
+                    gender: getCookie(`${cookieEmail}_gender`),
+                    phone: getCookie(`${cookieEmail}_phone`),
+                    skype: getCookie(`${cookieEmail}_skype`)
+                };
+                return userData;
+            }
+            return null;
+        }
+
+        function fillForm(userData) {
+            document.getElementById('firstname').value = userData.firstname || '';
+            document.getElementById('lastname').value = userData.lastname || '';
+            document.getElementById('year').value = userData.year || '';
+            document.getElementById('gender').value = userData.gender || '';
+            document.getElementById('phone').value = userData.phone || '';
+            document.getElementById('skype').value = userData.skype || '';
+        }
+
+        function clearForm() {
+            document.getElementById('firstname').value = '';
+            document.getElementById('lastname').value = '';
+            document.getElementById('year').value = '';
+            document.getElementById('gender').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('skype').value = '';
+        }
+
+        function validation() {
+            const email = getCookie('email');
+            const firstname = document.getElementById('firstname');
+            const lastname = document.getElementById('lastname');
+            const year = document.getElementById('year');
+            const phone = document.getElementById('phone');
+            const skype = document.getElementById('skype');
+            const saveMessage = document.getElementById('saveMessage');
+            console.log("DD");
+            if (firstname.value.trim() === '') {
+                alert('First name is required');
+                return false;
+            }
+
+            if (firstname.value.length > 20) {
+                alert('Maximum length for first name is 20 characters');
+                return false;
+            }
+
+            if (lastname.value.trim() === '') {
+                alert('Last name is required');
+                return false;
+            }
+
+            if (lastname.value.length > 20) {
+                alert('Maximum length for last name is 20 characters');
+                return false;
+            }
+
+            const currentYear = new Date().getFullYear();
+            const enteredYear = parseInt(yearInput.value);
+            if (isNaN(enteredYear) || enteredYear < 1900 || enteredYear > currentYear) {
+                alert('Please enter a valid year of birth');
+                return false;
+            }
+
+            const phoneRegex = /^\d{10,12}$/;
+            if (phone.value.trim() !== '' && !phoneRegex.test(phone.value)) {
+                alert('Please enter a valid phone number');
+                return false;
+            }
+
+            document.cookie = `${email}_firstname=${firstname.value}; max-age=${3600}`;
+            document.cookie = `${email}_lastname=${lastname.value}; max-age=${3600}`;
+            document.cookie = `${email}_year=${year.value}; max-age=${3600}`;
+            document.cookie = `${email}_gender=${document.getElementById('gender').value}; max-age=${3600}`;
+            document.cookie = `${email}_phone=${phone.value}; max-age=${3600}`;
+            document.cookie = `${email}_skype=${skype.value}; max-age=${3600}`;
+            saveMessage.style.display = 'block';
+            setTimeout(function() {
+                saveMessage.style.display = 'none';
+            }, 2000);
+
+            return true;
+        }
+
+        function Hello(email) {
+            const greeting = document.querySelector('.greeting');
+            greeting.textContent = `Hello, ${email}! `;
+            const exitLink = document.createElement('a');
+            exitLink.textContent = 'exit';
+            exitLink.href = 'registration.html';
+            greeting.appendChild(exitLink);
+        }
+
+        function getCookie(name) {
+            const cookieArray = document.cookie.split(';');
+            for (let cookie of cookieArray) {
+                const [cookieName, cookieValue] = cookie.split('=');
+                if (cookieName.trim() === name) {
+                    return cookieValue;
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+</html>
