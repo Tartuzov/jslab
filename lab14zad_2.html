@@ -90,8 +90,7 @@
             const phone = document.getElementById('phone');
             const skype = document.getElementById('skype');
             const saveMessage = document.getElementById('saveMessage');
-            console.log("DD");
-            if (firstname.value.trim() === '') {
+            if (firstname.value.trim() == '') {
                 alert('First name is required');
                 return false;
             }
@@ -101,7 +100,7 @@
                 return false;
             }
 
-            if (lastname.value.trim() === '') {
+            if (lastname.value.trim() == '') {
                 alert('Last name is required');
                 return false;
             }
@@ -112,7 +111,7 @@
             }
 
             const currentYear = new Date().getFullYear();
-            const enteredYear = parseInt(yearInput.value);
+            const enteredYear = parseInt(year.value);
             if (isNaN(enteredYear) || enteredYear < 1900 || enteredYear > currentYear) {
                 alert('Please enter a valid year of birth');
                 return false;
@@ -123,6 +122,7 @@
                 alert('Please enter a valid phone number');
                 return false;
             }
+            console.log("DD");
 
             document.cookie = `${email}_firstname=${firstname.value}; max-age=${3600}`;
             document.cookie = `${email}_lastname=${lastname.value}; max-age=${3600}`;
